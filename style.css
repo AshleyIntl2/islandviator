@@ -185,3 +185,25 @@ header.top { align-items: center; }
 .views { display: grid; gap: 1rem; }
 @media (max-width: 30rem) { .view-wide { aspect-ratio: 4 / 3; } .view-strip { aspect-ratio: 16 / 9; } }
 @media print { .view { display: none; } }
+
+/* Underwater tunnel window (drawn, not a photo) */
+.sea { background: #11648C; }
+.sea svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.sea .hull { transform: translateX(calc(45px + (50% - var(--pan)) * 1.2)); }
+.sea .view-glass { box-shadow: inset 0 0 0 6px var(--surface); }
+.sea .school path { fill: #082C44; }
+@media (prefers-reduced-motion: no-preference) {
+  .sea .rays path { animation: ray 6s ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
+  .sea .surface { animation: swell 5s linear infinite; }
+  .sea .speed { animation: cross 14s linear -5s infinite; }
+  .sea .school { animation: swim 22s linear -9s infinite; }
+  .sea .bub { animation: rise var(--t) linear infinite; animation-delay: var(--d); }
+  .sea .blade { transform-box: fill-box; transform-origin: bottom; animation: sway 4s ease-in-out infinite alternate; animation-delay: var(--d); }
+}
+@keyframes ray { from { opacity: .35; } to { opacity: 1; } }
+@keyframes swell { to { transform: translateX(-100px); } }
+@keyframes cross { from { transform: translateX(900px); } to { transform: translateX(-200px); } }
+@keyframes swim { from { transform: translate(-160px, 210px) scale(1.4); } to { transform: translate(900px, 180px) scale(1.4); } }
+@keyframes rise { from { transform: translateY(0); opacity: 0; } 10% { opacity: 1; } to { transform: translateY(-320px); opacity: 0; } }
+@keyframes sway { from { transform: rotate(-6deg); } to { transform: rotate(6deg); } }
+.sea .school { transform: translate(380px, 200px) scale(1.4); }

@@ -169,3 +169,8 @@ header.top { align-items: center; }
   --accent: #A98BF2; --accent-soft: #2A2450; --sun: #F5A55C; color-scheme: dark; }
 .stripe { height: 6px; border-radius: 3px; background: linear-gradient(90deg, #5FC9B5 0 14%, #7DB8E8 14% 28%, #1FA66B 28% 42%, #F28A2E 42% 56%, #C9302C 56% 70%, #5FC9B5 70% 85%, #7B4FD6 85% 100%); margin-bottom: 2rem; }
 .brand { font-weight: 800; letter-spacing: .01em; }
+
+/* Tunnel Pass photos */
+.pass-img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 3; object-fit: cover; background: var(--line); }
+.passes { grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); }
+.pass.closed .sw { height: auto; aspect-ratio: 5 / 3; }
